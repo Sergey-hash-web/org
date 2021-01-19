@@ -1,0 +1,95 @@
+<footer>
+   <div class="content_footer_top">
+      <div class="container">
+         <div class="row">
+            <div class="footer-top">
+              {{ footer_top }}
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="footer-container">
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-3 first">
+
+         {{ footer_left }}
+
+         </div>
+         
+       
+         <!-- <div class="col-sm-3 footer-box extra-box">
+            <h5 class="hidden-xs">{{ text_extra }}</h5>
+            <h5 class="toggle-title visible-xs" data-toggle="collapse" data-target="#footer-extras">{{ text_extra }}
+               <span class="toggle-arrow"></span> 
+            </h5>
+            <div id="footer-extras" class="footer-contents collapse">
+               <ul class="list-unstyled">
+                  <li><a href="{{ manufacturer }}">{{ text_manufacturer }}</a></li>
+                  <li><a href="{{ voucher }}">{{ text_voucher }}</a></li>
+                  <li><a href="{{ affiliate }}">{{ text_affiliate }}</a></li>
+                  <li><a href="{{ special }}">{{ text_special }}</a></li>
+                  <li><a href="{{ contact }}">{{ text_contact }}</a></li>
+               </ul>
+            </div>
+         </div> -->
+         
+         <!-- <div class="col-sm-3 footer-box account-box">
+            <h5 class="hidden-xs">{{ text_account }}</h5>
+            <h5 class="toggle-title visible-xs" data-toggle="collapse" data-target="#footer-account">{{ text_account }}
+               <span class="toggle-arrow"></span> 
+            </h5>
+            <div id="footer-account" class="footer-contents collapse">
+               <ul class="list-unstyled">
+                  <li><a href="{{ account }}">{{ text_account }}</a></li>
+                  <li><a href="{{ order }}">{{ text_order }}</a></li>
+                  <li><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>
+                  <li><a href="{{ newsletter }}">{{ text_newsletter }}</a></li>
+              <li><a href="{{ return }}">{{ text_return }}</a></li>
+               </ul>
+            </div>
+         </div> -->
+
+         <div class="col-sm-3 column forth">{{ footer_right }}</div>
+         <div class="col-sm-12 footer-box customer-service">
+               <h5 class="hidden-xs">{{ text_service }}</h5>
+               <h5 class="toggle-title visible-xs" data-toggle="collapse" data-target="#footer-services">{{ text_service }}<span class="toggle-arrow"></span></h5>
+               <div id="footer-services" class="footer-contents collapse">
+               <ul class="list-unstyled">
+                  <li><a href="{{ contact }}">{{ text_contact }}</a></li>
+                  <li><a href="{{ return }}">{{ text_return }}</a></li>
+                  <li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>
+                  <li><a href="{{ newsletter }}">{{ text_newsletter }}</a></li>
+                  <li><a href="{{ special }}">{{ text_special }}</a></li>
+                  <li><a href="{{ affiliate }}">{{ text_affiliate }}</a></li>
+                  
+               </ul>
+               </div>
+            </div>
+      </div>
+   </div>
+   </div>
+<div class="footer-bottom">
+   <div class="container">
+      <div class="row">
+         <div class="content_footer_bottom">
+            {{ footer_bottom }}
+            
+            <div class="copyright">
+               <p>{{ powered }}</p>
+            </div>
+         </div>
+        
+      </div>
+   </div>
+</div>
+   <button id="topbtn" title="Go to top">Top</button>
+</footer>
+{% for script in scripts %}
+<script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+<!--
+   OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
+   Please donate via PayPal to donate@opencart.com
+   //-->
+</body></html>

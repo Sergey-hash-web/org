@@ -1,0 +1,64 @@
+<div class="box blogs top-space">
+   
+   <div class="container">
+      <div class="row">
+         <div class="title-block">
+            <h3 class="h1 products-section-title text-uppercase">
+               <span>{{ heading_title }}</span>
+            </h3>
+         </div>
+         <div class="common-box">
+{% set sliderFor = 4 %}
+{% set blogCount = blogs|length %}
+
+<span id="blog-slider-arrows" class="slick-arrows"></span>
+<div class="box-content products">
+   <div class="box-product" id="{% if blogCount >= sliderFor %}blog-slider{% else %}blog-grid{% endif %}">
+      {% for blog in blogs %} 
+      {% if blogCount >= sliderFor %}
+      <div class="blog-items col-lg-12 col-md-12 col-sm-12 col-xs-12">
+         {% else %}
+         <div class="blog-items col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            {% endif %}
+            <div class="summary">
+               {% if blog.image %} 
+               <div class="blog-left">
+                  <div class="blog-image image">
+                     <img src="{{ blog.image }}" alt="{{ heading_title }}" title="{{ heading_title }}" />
+                     <div class="post-image-hover"> </div>
+                     <p class="post_hover"><a class="icon zoom" title="Click to view Full Image " href="{{ blog.image }}" data-lightbox="example-set"><i class="fa fa-search-plus"></i> </a>
+                        <a class="icon readmore_link" title="Click to view Read More " href="{{ blog.href }}"><i class="fa fa-link"></i></a>
+                     </p>
+                  </div>
+               </div>
+               {% endif %} 	
+               <div class="blog-right blog-info">
+                  <div class="blog-desc-info">
+                     <h2 class="blog_title"><a href="{{ blog.href }}">{{ blog.title }}</a></h2>
+
+                     <div class="blog_desc">
+                        <p> {{ blog.description }} </p>
+                     </div>
+
+                     <div class="view-blog">
+                        <div class="blog_stats"><span class="hl">{{ blog.date_added }}</span></div>
+
+                        <div class="read-more">
+                        <a class="btn" href="{{ blog.href }}"> <i class="fa fa-link"></i> {{ text_read_more }}</a>
+                     </div>
+                     </div>
+
+                  </div>
+               </div>
+            </div>
+         </div>
+         {% endfor %} 	 
+      </div>
+      <!-- <div class="buttons text-center">
+         <button type="button" onclick="location='{{ all_blogs }} ';" class="btn btn-primary">{{ button_all_blogs }}</button>
+         </div>-->
+   </div>
+</div>
+</div>
+</div>
+</div>

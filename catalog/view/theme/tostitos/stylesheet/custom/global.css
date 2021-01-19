@@ -1,0 +1,201 @@
+/*
+ * Custom code goes here.
+ * A template should always ship with an empty custom.css
+ */
+
+.slick-arrow .material-icons {
+	font-size: 0;
+}
+.slick-arrows .slick-arrow{
+	position: static;
+}
+/*.slick-arrow {*/
+/*	font-size: 0;*/
+/*	padding: 0;*/
+/*	margin: 0;*/
+/*	height: 25px;*/
+/*	width: 25px;*/
+/*	border: none;*/
+/*	float: left;*/
+/*	background: #65860b;*/
+/*	transition: all 0.45s ease 0s;*/
+/*	-webkit-transition: all 0.45s ease 0s;*/
+/*	-moz-transition: all 0.45s ease 0s;*/
+/*	-o-transition: all 0.45s ease 0s;*/
+/*}*/
+.slick-arrow {
+	font-size: 0;
+	position: absolute;
+	font-weight: 300;
+	height: 30px;
+	width: 70px;
+	line-height: 26px;
+	padding: 0;
+	color: #000000;
+	background: #f2f2f2 url(../../image/codezeel/arrow.png) no-repeat 0 0;
+	cursor: pointer;
+	overflow: hidden;
+	margin: 0 7px;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	-ms-border-radius: 25px;
+	-o-border-radius: 25px;
+	border-radius: 25px;
+	-webkit-transition: all 0.5s ease;
+	-webkit-transition-delay: 0s;
+	-moz-transition: all 0.5s ease 0s;
+	-o-transition: all 0.5s ease 0s;
+	transition: all 0.5s ease 0s;
+}
+.blogs .slick-arrow{top: 23.5%;}
+.carousel-box .slick-arrow{top: 40%;}
+.products:hover .slick-arrow {
+	transition: all 0.45s ease 0s;
+	-webkit-transition: all 0.45s ease 0s;
+	-moz-transition: all 0.45s ease 0s;
+	-o-transition: all 0.45s ease 0s;
+}
+
+.slick-arrow.left {
+	background : #F2F2F2 url(../../image/left-arrow.svg) no-repeat scroll center center;
+}
+
+.slick-arrow.right {
+	margin-left: 10px;
+	background: #F2F2F2 url(../../image/right-arrow.svg) no-repeat scroll center center;
+}
+
+.slick-arrow.left:hover,
+.slick-arrow.right:hover {
+	background-color: #0d141b;
+}
+.slik-arrows {
+	position: absolute;
+	top: 0;
+	left: auto;
+	right: 0;
+}
+
+.slik-arrows .slick-arrow {
+	opacity: 1;
+	-webkit-opacity: 1;
+	-moz-opacity: 1;
+	-o-opacity: 1;
+}
+
+#image-additional-slider .slick-arrow {
+	opacity: 0;
+	-webkit-opacity: 0;
+	-moz-opacity: 0;
+	-o-opacity: 0;
+	height: 30px;
+	width: 30px;
+	top: 50%;
+	position: absolute;
+}
+#image-additional-slider:hover .slick-arrow{
+	opacity: 1;
+	-webkit-opacity: 1;
+	-moz-opacity: 1;
+	-o-opacity: 1;
+}
+#image-additional-slider .slick-arrow.left {
+	left: 0;
+	background-position: center 8px;
+}
+
+#image-additional-slider .slick-arrow.right {
+	right: 0;
+	background-position: center 8px;
+}
+#image-additional-slider .slick-arrow.left:hover{
+}
+#image-additional-slider .slick-arrow.right:hover 
+{
+}
+.special-box .special-image-additional-slider .slick-arrow {
+    height: 30px;
+    width: 30px;
+    opacity: 0;
+    top: 28%;
+}
+.special-box .special-image-additional-slider:hover .slick-arrow {
+    opacity: 1;
+}
+.special-box .special-image-additional-slider .slick-arrow.left, 
+.special-box .special-image-additional-slider .slick-arrow.right {
+    background-position: center -56px;
+    background-color: transparent;
+}
+.slick-dots li {
+	display: inline-block;
+	margin: 0 5px;
+}
+
+.slick-dots {
+	padding-top: 20px;
+	padding-left: 0;
+	margin: 0;
+	z-index: 9;
+	text-align: center;
+}
+
+.slick-dots li button {
+	height: 12px;
+	width: 12px;
+	background: #102d6c;
+	border: none;
+	font-size: 0;
+	line-height: 0;
+	padding: 0;
+	position: relative;
+	cursor: pointer;
+	transition: all 0.45s ease 0s;
+	-webkit-transition: all 0.45s ease 0s;
+	-moz-transition: all 0.45s ease 0s;
+	-o-transition: all 0.45s ease 0s;
+}
+.slick-dots li.slick-active button,
+.slick-dots li:hover button {
+	background: #65860b;
+	transition: all 0.45s ease 0s;
+	-webkit-transition: all 0.45s ease 0s;
+	-moz-transition: all 0.45s ease 0s;
+	-o-transition: all 0.45s ease 0s;
+}
+
+.toggle-title .toggle-arrow {
+	background: url("../../image/toggle-arrow.png") no-repeat scroll center 3px;
+	cursor: pointer;
+	display: block;
+	height: 25px;
+	margin-top: -32px;
+	overflow: hidden;
+	padding: 0 0 10px;
+	position: absolute;
+	right: 0;
+	width: 35px;
+}
+.slick-arrows {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    transition: all 0.45s ease 0s;
+    -webkit-transition: all 0.45s ease 0s;
+    -moz-transition: all 0.45s ease 0s;
+    -o-transition: all 0.45s ease 0s;
+}
+footer .toggle-title.open .toggle-arrow {
+	background-position: center -50px;
+}
+@media (max-width: 1199px) {
+}
+@media (max-width: 991px){
+	
+}
+@media (max-width: 767px){	
+	.slick-arrows{right: 15px;}
+}
+@media (max-width: 479px){
+.slick-arrows{top: 5px;}
+}

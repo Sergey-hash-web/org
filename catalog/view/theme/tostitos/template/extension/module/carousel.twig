@@ -1,0 +1,25 @@
+<div class="carousel-box top-space">
+   <div class="container">
+      <div class="row">
+         <div class="common-box">
+{#         <div class="title-block">#}
+{#            <h3 class="h1 products-section-title text-uppercase">#}
+{#            <span>{{ heading_title }}</span></h3>#}
+{#         </div>#}
+{#         <div id="brand-slider-arrows" class="slick-arrows"></div>#}
+         <div class="products">
+            <div class="swiper-viewport">
+               <div id="brand-slider" class="swiper-container">
+                  {% for banner in banners %}
+                  <div class="swiper-slide text-center">{% if banner.link %}
+                     <a href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /> </a>
+                     {% else %}<a href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /></a>{% endif %}
+                  </div>
+                  {% endfor %}
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+   </div>
+</div>

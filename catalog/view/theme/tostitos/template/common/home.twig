@@ -1,0 +1,81 @@
+{{ header }}
+{{ content_top }}
+<div id="common-home" >
+   {{ column_left }}
+   {% if column_left and column_right %}
+   {% set class = 'col-sm-6' %}
+   {% elseif column_left or column_right %}
+   {% set class = 'col-sm-9' %}
+   {% else %}
+   {% set class = 'col-sm-12' %}
+   {% endif %}
+   <div id="content" class="">
+      {{ content_bottom }}
+   </div>
+   {{ column_right }}
+</div>
+{{ footer }}
+
+{#<div id="custom-testimonial" class="top-space" >#}
+{#   <div class="container">#}
+{#      <div class="row">#}
+{#         <div class="h1 products-section-title"></div>#}
+{#         <div id="testimonial-block">#}
+{#            <div id="testimonial-slider">#}
+{#               <div class="item testimonial-contain">#}
+{#                  <div class="testmonial-main">#}
+{#                     <div class="testimonial-description">#}
+{#                        <div class="des">#}
+{#                           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been theindustry's standarddummy text ever since the 1500s,when scrambled it to makea type specimen book.#}
+{#                           </p>#}
+{#                        </div>#}
+{#                        <div class="testmonial-author">#}
+{#                           <div class="user-name"><a href="#" tabindex="0">AAA AAA</a></div>#}
+{#                           <div class="user-des">HR Manager</div>#}
+{#                           <div class="testmonial-image">#}
+{#                              <img alt="testmonial" title="testmonial" src="image/catalog/testimonial-1.png">#}
+{#                           </div>#}
+{#                        </div>#}
+{#                     </div>#}
+{#                  </div>#}
+{#               </div>#}
+{#               <div class="item testimonial-contain">#}
+{#                  <div class="testmonial-main">#}
+{#                     <div class="testimonial-description">#}
+{#                        <div class="des">#}
+{#                           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been theindustry's standarddummy text ever since the 1500s,when scrambled it to makea type specimen book.#}
+{#                           </p>#}
+{#                        </div>#}
+{#                        <div class="testmonial-author">#}
+{#                           <div class="user-name"><a href="#" tabindex="0">BBB BBB</a></div>#}
+{#                           <div class="user-des">HR Manager</div>#}
+{#                           <div class="testmonial-image">#}
+{#                              <img alt="testmonial" title="testmonial" src="image/catalog/testimonial-2.png">#}
+{#                           </div>#}
+{#                        </div>#}
+{#                     </div>#}
+{#                  </div>#}
+{#               </div>#}
+{#               <div class="item testimonial-contain">#}
+{#                  <div class="testmonial-main">#}
+{#                     <div class="testimonial-description">#}
+{#                        <div class="des">#}
+{#                           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been theindustry's standarddummy text ever since the 1500s,when scrambled it to makea type specimen book.#}
+{#                           </p>#}
+{#                        </div>#}
+{#                        <div class="testmonial-author">#}
+{#                           <div class="user-name"><a href="#" tabindex="0">CCC CCC</a></div>#}
+{#                           <div class="user-des">HR Manager</div>#}
+{#                           <div class="testmonial-image">#}
+{#                              <img alt="testmonial" title="testmonial" src="image/catalog/testimonial-3.png">#}
+{#                           </div>#}
+{#                        </div>#}
+{#                     </div>#}
+{#                  </div>#}
+{#               </div>#}
+{#            </div>#}
+{#         </div>#}
+{#         <div id="testimonial-arrows" class="slick-arrows"></div>#}
+{#      </div>#}
+{#   </div>#}
+{#</div>#}

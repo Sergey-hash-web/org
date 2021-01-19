@@ -1,0 +1,43 @@
+<div id="sidecategory" class="side-categories top-space hi">
+   <h3 class="h1 products-section-title text-uppercase">{{ heading_title }}</h3>
+   <div class="box-content list-group">
+      <ul class="box-category treeview-list">
+         {% for category in categories %}
+         {% if category.children %}
+         <li class="top_level dropdown" data-target="collapse">
+            <a href="{{ category.href }}">{{ category.name }}</a>
+            {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
+            <ul class="list-unstyled childs_1 collapse">
+               {% for child in children %}
+               <!-- 2 Level Sub Categories START -->
+               {% if child.childs %}
+               <li class="dropdown">
+                  <a href="{{ child.href }}">{{ child.name }}</a>
+                  {% for childs_col in child.childs|batch(child.childs|length / child.column|round(1, 'ceil')) %}
+                  <ul class="list-unstyled childs_2 collapse">
+                     {% for childs_2 in childs_col %}
+                     <li>
+                        <a href="{{ childs_2.href }}">{{ childs_2.name }}</a>
+                     </li>
+                     {% endfor %}
+                  </ul>
+                  {% endfor %}
+               </li>
+               {% else %}
+               <li><a href="{{ child.href }}">{{ child.name }}</a></li>
+               {% endif %}
+               <!-- 2 Level Sub Categories END -->
+               {% endfor %}
+            </ul>
+            {% endfor %}
+         </li>
+         {% else %}
+         <li class="top_level"><a href="{{ category.href }}">{{ category.name }}</a></li>
+         {% endif %}
+         {% endfor %}
+         {% if blog_enable %}
+         <li> <a href="{{ all_blogs }}">{{ text_blog }}</a></li>
+         {% endif %}
+      </ul>
+   </div>
+</div>

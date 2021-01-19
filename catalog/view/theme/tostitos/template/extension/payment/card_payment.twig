@@ -1,0 +1,12 @@
+{% if testmode %}
+<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ text_testmode }}</div>
+{% endif %}
+<form action="{{ action }}" method="get">
+   <input type="hidden" name="id" value="{{ id }}" />
+   <input type="hidden" name="lang" value="{{ lang }}" />
+   <div class="buttons">
+      <div class="pull-right">
+         <input type="submit" value="{{ button_confirm }}" class="btn btn-primary" />
+      </div>
+   </div>
+</form>

@@ -1,0 +1,75 @@
+<script>
+   function subscribe()
+   {
+   	var emailpattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+   	var email = $('#txtemail').val();
+   	if(email != "")
+   	{
+   		if(!emailpattern.test(email))
+   		{
+   			$('.text-danger').remove();
+   			var str = '<span class="error">Invalid Email</span>';
+   			$('#txtemail').after('<div class="text-danger">Invalid Email</div>');
+   
+   			return false;
+   		}
+   		else
+   		{
+   			$.ajax({
+   				url: 'index.php?route=extension/module/newsletters/news',
+   				type: 'post',
+   				data: 'email=' + $('#txtemail').val(),
+   				dataType: 'json',
+   				
+   							
+   				success: function(json) {
+   				
+   				$('.text-danger').remove();
+   				$('#txtemail').after('<div class="text-danger">' + json.message + '</div>');
+   				
+   				}
+   				
+   			});
+   			return false;
+   		}
+   	}
+   	else
+   	{
+   		$('.text-danger').remove();
+   		$('#txtemail').after('<div class="text-danger">Email Is Require</div>');
+   		$(email).focus();
+   
+   		return false;
+   	}
+   	
+   
+   }
+</script>
+<div class="newsletter">
+{#      <div class="newsletter-inner">#}
+{#         <div class="footer-logo">#}
+{#            <div id="logo2">#}
+{#               {% if logo %}<a href="{{ home }}"><img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-responsive" /></a>{% else %}#}
+{#                  <h1><a href="{{ home }}">{{ name }}</a></h1>#}
+{#               {% endif %}#}
+{#            </div>#}
+{#         </div>#}
+         <div class="newsletter-right">
+            <div class="newsletter-form">
+            <form method="post">
+               <div class="form-group required">
+                  <!-- <label class="col-sm-2 control-label" for="txtemail">{{ entry_email }}</label> -->
+                  <div class="input-news">
+                     <input type="email" name="txtemail" id="txtemail" value="" placeholder="{{ entry_email }}" class="form-control input-lg"  />     	       
+                  </div>
+                  <div class="subscribe-btn">
+                     <button type="submit" class="btn btn-default btn-lg" onclick="return subscribe();">
+                     </button>
+                  </div>
+               </div>
+            </form>
+            </div>
+
+         </div>
+      </div>
+   </div>

@@ -1,0 +1,49 @@
+{% if categories %}
+<nav id="menu" class="navbar">
+   <div class="navbar-header navbar-toggle"  data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span id="category" class="visible-xs">{{ text_category }}</span>
+      <button type="button" class="btn btn-navbar ">&nbsp;<i class="fa fa-bars"></i></button>
+   </div>
+   <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+         {% for category in categories %}
+         {% if category.children %}
+         <li class="dropdown column{{ category.column }}">
+            <a href="{{ category.href }}" >{{ category.name }}<i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-menu megamenu">
+               <div class="dropdown-inner">
+                  {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
+                  <ul class="list-unstyled childs_1">
+                     {% for child in children %}
+                     <li class="dropdown">
+                        <a href="{{ child.href }}">{{ child.name }}</a>
+                        {% if child.childs %}
+                        <div class="dropdown-menu submenu3">
+                           <div class="dropdown-inner">
+                              {% for childs_col in child.childs|batch(child.childs|length / child.column|round(1, 'ceil')) %}
+                              <ul class="list-unstyled childs_2">
+                                 {% for childs_2 in childs_col %}
+                                 <li><a href="{{ childs_2.href }}">{{ childs_2.name }}</a></li>
+                                 {% endfor %}
+                              </ul>
+                              {% endfor %}
+                           </div>
+                        </div>
+                        {% endif %}
+                     </li>
+                     {% endfor %}
+                  </ul>
+                  {% endfor %}
+               </div>
+               <a href="{{ category.href }}" class="see-all">{{ text_all }}</a> 
+            </div>
+         </li>
+         {% else %}
+         <li><a href="{{ category.href }}">{{ category.name }}</a></li>
+         {% endif %}
+         {% endfor %}
+         <li class="level0"> <a href="{{ all_blogs }}">{{ text_blog }}</a></li>
+      </ul>
+   </div>
+</nav>
+{% endif %}

@@ -1,0 +1,38 @@
+{{ header }}
+
+<div id="common-success" class="container">
+  
+   <div class="row">
+      {{ column_left }}
+      {% if column_left and column_right %}
+      {% set class = 'col-sm-6' %}
+      {% elseif column_left or column_right %}
+      {% set class = 'col-sm-9' %}
+      {% else %}
+      {% set class = 'col-sm-12' %}
+      {% endif %}
+      <div id="content" class="{{ class }}">
+         {{ content_top }}
+         <div class="title-breadcrumb content-width full-width">
+      <div class="container">
+         <div class="row">
+            <ul class="breadcrumb">
+               {% for breadcrumb in breadcrumbs %}
+               <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+               {% endfor %}
+            </ul>
+         </div>
+      </div>
+   </div>
+         <div class="content-inner">
+         {{ text_message }}
+         <div class="buttons">
+            <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+         </div>
+      </div>
+         {{ content_bottom }}
+      </div>
+      {{ column_right }}
+   </div>
+</div>
+{{ footer }}

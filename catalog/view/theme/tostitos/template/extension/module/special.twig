@@ -1,0 +1,116 @@
+<div class="special-box top-space products-box">
+   <div class="container">
+      <div class="row">
+      <div class="title-block">
+         <h3 class="h1 products-section-title text-uppercase">
+            <span>{{ heading_title }}</span></h3>
+      </div>
+      <span id="special-arrows" class="slick-arrows"></span>
+      <div class="products">
+          <div class="special-block">
+         {% set sliderFor = 3 %}
+         {% set productCount = products|length %}
+         <div id="{% if productCount >= sliderFor %}special-slider{% else %}special-grid{% endif %}">
+            {% for product in products %}
+            {% if productCount >= sliderFor %}
+            <div class="product-layout col-lg-12 col-md-12 col-sm-12 col-xs-12">
+               {% else %}
+               <div class="product-layout col-lg-3 col-md-4 col-sm-4 col-xs-6">
+                  {% endif %}
+
+                  <div class="product-thumb transition">
+
+                     <div class="image">
+                        <a href="{{ product.href }}">
+                        <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" />
+                        <img class="img-responsive hover-image" src="{{ product.thumb_swap }}" title="{{ product.name }}" alt="{{ product.name }}"/></a>
+
+
+
+                        <!-- additional slider -->
+                           <!-- {% if products %}
+                           {% set  sliderFor = 4 %}
+                           {% set imageCount = products|length %}
+                           <div id="special-image-additional-slider" class="js-qv-product-images special-image-additional-slider">
+
+                                 {% for image1 in products %}
+                                 {% if imageCount >= sliderFor %}
+                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    {% else %}
+                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                       {% endif %}
+                                       <div class="product-block">
+                                          <img src="{{ image1.thumb }}" width="60" height="60" title="{{ heading_title }}" alt="{{ heading_title }}" />
+                                       </div>
+                                    </div>
+                                    {% endfor %}
+                              {% endif %}
+                           </div> -->
+                        <!-- additional slider end -->
+
+                        <div class="button-group">
+                           <button class="addtocart" type="button" data-toggle="tooltip" data-placement="right" title="{{ button_cart }}" onclick="cart.add('{{ product.product_id }}');"> <i class="fa fa-shopping-cart"></i> </button>
+                           <button class="wishlist" type="button" data-toggle="tooltip" data-placement="right" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
+                           <button class="compare" type="button" data-toggle="tooltip" data-placement="right" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>
+                        </div>
+                      </div>
+
+                     <div class="caption">
+                        <h4><a href="{{ product.href }}">{{ product.name }}</a></h4>
+
+                        {% if product.rating %}
+                        <div class="rating">
+                           {% for i in  1..5 %}
+                           {% if product.rating < i %}
+                           <span class="fa fa-stack">
+                           <i class="fa fa-star off fa-stack-2x"></i>
+                           </span>
+                           {% else %}
+                           <span class="fa fa-stack">
+                           <i class="fa fa-star fa-stack-2x"></i>
+                           </span>
+                           {% endif %}
+                           {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        <p class="short-desc">{{ product.description }}</p>
+
+                        {% if product.price %}
+                           <p class="price"> {% if not product.special %}
+                                 {{ product.price }}
+                              {% else %} <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span> {% endif %}
+                              {% if product.tax %} <span class="price-tax">{{ text_tax }} {{ product.tax }}</span> {% endif %}
+                           </p>
+                        {% endif %}
+
+                        <!-- counter start -->
+                        <div class="countdown">
+                           {% if product.specialTime %}
+                              <div class="count-down clock">
+                                 <div data-countdown="{{ product.specialTime }}" class="countbox hastime"></div>
+                              </div>
+                           {% endif %}
+                        </div>
+                        <!-- counter end -->
+
+
+                        <div class="button-group">
+                           <button type="button" onclick="cart.add('{{ product.product_id }}');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></button>
+                           <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
+                           <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>
+                        </div>
+
+
+
+                     </div>
+                  </div>
+               </div>
+               {% endfor %}
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+   </div>
+</div>

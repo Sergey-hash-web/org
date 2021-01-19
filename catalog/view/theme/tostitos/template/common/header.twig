@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<!--[if IE 8 ]>
+<html dir="{{ direction }}" lang="{{ lang }}" class="ie8">
+   <![endif]-->
+   <!--[if IE 9 ]>
+   <html dir="{{ direction }}" lang="{{ lang }}" class="ie9">
+      <![endif]-->
+      <!--[if (gt IE 9)|!(IE)]><!-->
+      <html dir="{{ direction }}" lang="{{ lang }}">
+         <!--<![endif]-->
+         <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>{{ title }}</title>
+            <base href="{{ base }}" />
+            {% if description %}
+            <meta name="description" content="{{ description }}" />
+            {% endif %}
+            {% if keywords %}
+            <meta name="keywords" content="{{ keywords }}" />
+            {% endif %}
+            <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" ></script>
+            <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+            <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" ></script>
+            <script src="catalog/view/javascript/custom/global.js" ></script>
+            <script src="catalog/view/javascript/custom/slick.js" ></script>
+            <script src="catalog/view/javascript/custom/parallax.js" ></script>
+            <script src="catalog/view/javascript/custom/jquery.nivo.slider.js" ></script>
+            <script src="catalog/view/javascript/custom/jstree.min.js" ></script>
+            <script src="catalog/view/javascript/custom/jquery.elevatezoom.min.js" ></script>
+            <script src="catalog/view/javascript/custom/jquery.countdown.js" ></script>
+            <script src="catalog/view/javascript/custom/jquery.countdown.min.js" ></script>
+            <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+            <link href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700&display=swap" rel="stylesheet">
+            <link href="catalog/view/theme/{{ mytemplate }}/stylesheet/stylesheet.css" rel="stylesheet">
+            <link href="catalog/view/theme/{{ mytemplate }}/stylesheet/custom/slick.css" rel="stylesheet">
+            <link href="catalog/view/theme/{{ mytemplate }}/stylesheet/custom/global.css" rel="stylesheet">
+            <link href="catalog/view/theme/{{ mytemplate }}/stylesheet/custom/animate.css" rel="stylesheet">
+            <link href="catalog/view/theme/{{ mytemplate }}/stylesheet/custom/nivo-slider.css" rel="stylesheet">
+			{% if direction == 'rtl' %}
+			<link rel="stylesheet" type="text/css" href="catalog/view/theme/{{ mytemplate }}/stylesheet/custom/rtl/rtl.css">
+			{% endif %}
+            {% for style in styles %}
+            <link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
+            {% endfor %}
+            {% for script in scripts %}
+            <script src="{{ script }}" ></script>
+            {% endfor %}
+            <script src="catalog/view/javascript/common.js" ></script>
+            {% for link in links %}
+            <link href="{{ link.href }}" rel="{{ link.rel }}" />
+            {% endfor %}
+            {% for analytic in analytics %}
+            {{ analytic }}
+            {% endfor %}
+         </head>
+         {% if (column_left and column_right) %}
+         {% set layoutclass = 'layout-3' %}
+         {% elseif (column_left or column_right) %}
+         {% if column_left %}
+         {% set layoutclass = 'layout-2 left-col' %}
+         {% elseif column_right %}
+         {% set layoutclass = 'layout-2 right-col' %}
+         {% endif %}
+         {% else %}
+         {% set layoutclass = 'layout-1' %}
+         {% endif %}
+
+         <body class="{{ class }} {{ " " }} {{ layoutclass }}">
+            
+            <header>
+               <nav id="top">
+                  <div class="container">
+                     <div class="row">
+                        <div class="top-left pull-left">
+                        </div>
+                           <!-- <a href="{{ contact }}"><i class="fa fa-phone"></i></a><span class="contact-no">{{ telephone }}</span> -->
+
+                              <div id="cznavcmsblock">
+                                 <div class="callus">Call Us <span>:</span> (+12) 987-654-3210</div>
+                              </div>
+                              <div class="language">{{ language }}  </div>
+                              <div class="currency">{{ currency }}</div>
+                              <div class="user-signin">
+                                 <ul class="list-inline">
+                                    <!-- <li><a href="{{ contact }}"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md">{{ telephone }}</span></li> -->
+                                    <li class="dropdown myaccount">
+                                       <a class="user-toggle" href="{{ account }}" title="{{ text_account }}" data-toggle="collapse">
+                                          <span class="hidden-xs hidden-sm hidden-md">{{ text_account }}</span>&nbsp;&nbsp;>
+                                       </a>
+                                       <div class="account_data">
+                                         <span class="account-text">{{ text_account }}</span>
+                                           <span class="account-option">{{ text_account_option }}</span>
+                                       </div>
+                                       <ul class="collapse dropdown-menu dropdown-menu-right user-info">
+                                          {% if logged %}
+                                          <li><a class="account" href="{{ account }}"><span>{{ text_account }}</span></a></li>
+                                          <!--  <li><a href="{{ order }}">{{ text_order }}</a></li>
+                                             <li><a href="{{ transaction }}">{{ text_transaction }}</a></li>
+                                             <li><a href="{{ download }}">{{ text_download }}</a></li> -->
+                                          <li><a class="logout" href="{{ logout }}"><span>{{ text_logout }}</span></a></li>
+                                          {% else %}
+                                          <li><a class="register" href="{{ register }}"><span>{{ text_register }}</span></a></li>
+                                          <li><a class="login" href="{{ login }}"><span>{{ text_login }}</span></a></li>
+                                          {% endif %}
+                                       </ul>
+                                    </li>
+                                    <!--   <li><a href="{{ wishlist }}" id="wishlist-total" title="{{ text_wishlist }}"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_wishlist }}</span></a></li>
+                                       <li><a href="{{ shopping_cart }}" title="{{ text_shopping_cart }}"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_shopping_cart }}</span></a></li>
+                                       <li><a href="{{ checkout }}" title="{{ text_checkout }}"><i class="fa fa-share"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_checkout }}</span></a></li> -->
+                                 </ul>
+                              </div>
+
+   {#                           <div class="header-search">{{ search }}</div>#}
+
+                        <div id="top-links" class="nav pull-right">
+                           <!-- <div class="latest-offer"><span>{{ text_offer }}</span></div> -->
+                        </div>
+                     </div>
+                  </div>
+            </nav>
+               <div class="header-top">
+                  <div class="container">
+                     <div class="row">
+
+                           <div class="header-logo">
+                              <div id="logo">
+                                 {% if logo %}<a href="{{ home }}"><img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-responsive" /></a>{% else %}
+                                 <h1><a href="{{ home }}">{{ name }}</a></h1>
+                                 {% endif %}
+                              </div>
+                           </div>
+
+{#                           <div class="callus"> {{ header_top }}</div>#}
+
+
+                        <div class="shopping-cart">{{ cart }}</div>
+                        <div class="header-search">{{ search }}</div>
+                        {{ menu }}
+
+
+{#                           <div class="main-menu" id="static-menu">#}
+{#                              <ul class="nav">#}
+{#                                 <li class="first level0"><a href="index.php?route=affiliate/account/login">{{ txt_affiliate }}</a></li>#}
+{#                                 <li class="level0"><a href="index.php?route=account/voucher">{{ txt_voucher }}</a></li>#}
+{#                                 <li class="level0"><a href="index.php?route=product/manufacturer">{{ txt_manufacturer }}</a></li>#}
+{#                                 <li class="level0"><a href="index.php?route=account/return/add">{{ txt_return }}</a></li>#}
+{#                                 <li class="level0"><a href="index.php?route=information/sitemap">{{ txt_sitemap }}</a></li>#}
+{#                                 <li class="level0"><a href="index.php?route=information/contact">{{ txt_contact }}</a></li>#}
+{#                                 <li class="level0"><a href="index.php?route=information/themeblog/blogs">Blog</a></li>#}
+{#                              </ul>#}
+{#                           </div>#}
+                     </div>
+                  </div>
+               </div>
+               <div class="header-bottom">
+                  <div class="container">
+                     <div class="row">
+                        <!-- {{ header_bottom }} -->
+
+                     </div>
+                  </div>
+               </div>
+            </header>

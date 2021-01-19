@@ -1,0 +1,222 @@
+2020-12-07 12:17:10 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Admin Quick Language Switcher
+
+FILE: admin/view/template/common/header.twig
+CODE: </head>
+LINE: 35
+CODE: <ul class="nav navbar-nav navbar-right">
+LINE: 60
+
+FILE: admin/controller/common/header.php
+CODE: $data['direction'] = $this->language->get('direction');
+LINE: 22
+
+FILE: admin/controller/startup/startup.php
+CODE: $this->config->set('template_cache', $this->config->get('developer_theme'));
+LINE: 19
+----------------------------------------------------------------
+MOD: tostitos
+
+FILE: admin/language/en-gb/design/layout.php
+CODE: $_['text_column_right']   = 'Column Right';
+LINE: 16
+
+FILE: admin/view/template/design/layout_form.twig
+CODE: <button type="button" onclick="addModule('content-bottom');" data-toggle="tooltip" title="{{ button_module_add }}" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i></button>
+LINE: 276
+CODE: $('#module-column-left, #module-column-right, #module-content-top, #module-content-bottom').delegate('select[name*=\'code\']', 'change', function() {
+LINE: 827
+CODE: $('#module-column-left, #module-column-right, #module-content-top, #module-content-bottom').trigger('change');
+LINE: 839
+
+FILE: catalog/controller/common/footer.php
+CODE: $data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()));
+LINE: 31
+CODE: return $this->load->view('common/footer', $data);
+LINE: 67
+
+FILE: catalog/controller/common/header.php
+CODE: $data['name'] = $this->config->get('config_name');
+LINE: 37
+CODE: $data['language'] = $this->load->controller('common/language');
+LINE: 76
+CODE: return $this->load->view('common/header', $data);
+LINE: 90
+
+FILE: catalog/controller/common/menu.php
+CODE: $this->load->model('catalog/product');
+LINE: 8
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 22
+CODE: $children_data[] = array(
+LINE: 42
+CODE: 'name'  => $child['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
+LINE: 60
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
+LINE: 21
+CODE: 'thumb'       => $image,
+LINE: 57
+CODE: 'rating'      => $rating,
+LINE: 66
+CODE: 'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'])
+LINE: 70
+
+FILE: catalog/controller/extension/module/category.php
+CODE: public function index() {
+LINE: 2
+CODE: $this->load->language('extension/module/category');
+LINE: 5
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
+LINE: 30
+CODE: 'thumb'       => $image,
+LINE: 64
+CODE: 'rating'      => $rating,
+LINE: 73
+CODE: 'href'        => $this->url->link('product/product', 'product_id=' . $product_info['product_id'])
+LINE: 77
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
+LINE: 28
+CODE: 'thumb'       => $image,
+LINE: 62
+CODE: 'rating'      => $rating,
+LINE: 71
+CODE: 'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'])
+LINE: 75
+
+FILE: catalog/controller/extension/module/special.php
+CODE: $results = $this->model_catalog_product->getProductSpecials($filter_data);
+LINE: 18
+CODE: if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
+LINE: 33
+CODE: 'thumb'       => $image,
+LINE: 73
+CODE: 'rating'      => $rating,
+LINE: 82
+CODE: if ((float)$result['special']) {
+LINE: 53
+CODE: $special = $this->currency->format($this->tax->calculate($result['special'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+LINE: 59
+CODE: 'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'])
+LINE: 95
+
+FILE: catalog/controller/product/category.php
+CODE: if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
+LINE: 171
+CODE: 'thumb'       => $image,
+LINE: 205
+CODE: 'tax'         => $tax,
+LINE: 213
+CODE: 'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url)
+LINE: 219
+
+FILE: catalog/controller/product/compare.php
+CODE: if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
+LINE: 63
+CODE: 'thumb'        => $image,
+LINE: 104
+CODE: 'special'      => $special,
+LINE: 109
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
+LINE: 162
+CODE: 'thumb'        => $image,
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/product/product.php
+CODE: if ((float)$result['special']) {
+LINE: 392
+CODE: 'thumb'       => $image,
+LINE: 420
+CODE: 'tax'         => $tax,
+LINE: 428
+CODE: 'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'])
+LINE: 434
+
+FILE: catalog/controller/product/search.php
+CODE: if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
+LINE: 199
+CODE: 'thumb'       => $image,
+LINE: 233
+CODE: 'tax'         => $tax,
+LINE: 241
+CODE: 'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url)
+LINE: 247
+
+FILE: catalog/controller/product/special.php
+CODE: if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
+LINE: 89
+CODE: 'thumb'       => $image,
+LINE: 123
+CODE: 'tax'         => $tax,
+LINE: 131
+CODE: 'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url)
+LINE: 137
+
+FILE: catalog/language/en-gb/en-gb.php
+CODE: $_['button_compare']        = 'Compare this Product';
+LINE: 28
+
+FILE: catalog/language/en-gb/checkout/cart.php
+CODE: $_['text_items']               = '%s item(s) - %s';
+LINE: 8
+
+FILE: catalog/language/en-gb/common/cart.php
+CODE: $_['text_items']     = '%s item(s) - %s';
+LINE: 2
+
+FILE: catalog/language/en-gb/common/footer.php
+CODE: $_['text_affiliate']    = 'Affiliate';
+LINE: 10
+CODE: $_['text_powered']      = 'Powered By <a href="http://www.opencart.com">OpenCart</a><br /> %s &copy; %s';
+LINE: 18
+
+FILE: catalog/language/en-gb/common/header.php
+CODE: $_['text_all']           = 'Show All';
+LINE: 15
+
+FILE: catalog/language/en-gb/common/menu.php
+CODE: $_['text_all'] = 'Show All';
+      $_['Menu'] = 'Menu';
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/model/catalog/product.php
+CODE: $query = $this->db->query("SELECT DISTINCT *, pd.name AS name, p.image, m.name AS manufacturer, (SELECT price FROM " . DB_PREFIX . "product_discount pd2 WHERE pd2.product_id = p.product_id AND pd2.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' AND pd2.quantity = '1' AND ((pd2.date_start = '0000-00-00' OR pd2.date_start < NOW()) AND (pd2.date_end = '0000-00-00' OR pd2.date_end > NOW())) ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS discount, (SELECT price FROM " . DB_PREFIX . "product_special ps WHERE ps.product_id = p.product_id AND ps.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' AND ((ps.date_start = '0000-00-00' OR ps.date_start < NOW()) AND (ps.date_end = '0000-00-00' OR ps.date_end > NOW())) ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS special, (SELECT points FROM " . DB_PREFIX . "product_reward pr WHERE pr.product_id = p.product_id AND pr.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "') AS reward, (SELECT ss.name FROM " . DB_PREFIX . "stock_status ss WHERE ss.stock_status_id = p.stock_status_id AND ss.language_id = '" . (int)$this->config->get('config_language_id') . "') AS stock_status, (SELECT wcd.unit FROM " . DB_PREFIX . "weight_class_description wcd WHERE p.weight_class_id = wcd.weight_class_id AND wcd.language_id = '" . (int)$this->config->get('config_language_id') . "') AS weight_class, (SELECT lcd.unit FROM " . DB_PREFIX . "length_class_description lcd WHERE p.length_class_id = lcd.length_class_id AND lcd.language_id = '" . (int)$this->config->get('config_language_id') . "') AS length_class, (SELECT AVG(rating) AS total FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = p.product_id AND r1.status = '1' GROUP BY r1.product_id) AS rating, (SELECT COUNT(*) AS total FROM " . DB_PREFIX . "review r2 WHERE r2.product_id = p.product_id AND r2.status = '1' GROUP BY r2.product_id) AS reviews, p.sort_order FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) LEFT JOIN " . DB_PREFIX . "manufacturer m ON (p.manufacturer_id = m.manufacturer_id) WHERE p.product_id = '" . (int)$product_id . "' AND pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'");
+LINE: 7
+CODE: 'viewed'           => $query->row['viewed']
+LINE: 53
+----------------------------------------------------------------
